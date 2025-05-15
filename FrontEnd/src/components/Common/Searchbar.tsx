@@ -17,37 +17,29 @@ const Searchbar = () => {
   };
 
   return (
-    <div
-      className={`flex items-center justify-center w-full transition-all duration-300 ${
-        isOpen ? "absolute top-0 left-0 w-full bg-white h-24 z-50" : "w-auto"
-      }`}
-    >
+    <div className="flex items-center gap-2 transition-all duration-300">
       {isOpen ? (
-        <form
-          onSubmit={handleSearch}
-          className="relative  flex items-center justify-center w-full shadow-md"
-        >
-          <div className="relative mb-4 w-1/2">
+        <form onSubmit={handleSearch} className="flex items-center gap-2">
+          <div className="relative w-48">
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search products..."
-              className="w-full  px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-black"
+              className="px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-1 focus:ring-black w-48 transition-all duration-300"
             />
-            {/*Search Icon*/}
             <button
               type="submit"
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-black "
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-600 hover:text-black"
             >
-              <Search size={22} />
+              <Search size={20} />
             </button>
           </div>
-          {/*Close Icon*/}
+
           <button
             type="button"
             onClick={handleSearchTogggle}
-            className="absolute right-16 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-black"
+            className="text-gray-600 hover:text-black"
           >
             <X size={20} />
           </button>
@@ -55,7 +47,7 @@ const Searchbar = () => {
       ) : (
         <button
           onClick={handleSearchTogggle}
-          className="text-gray-600 hover:text-black "
+          className="text-gray-600 hover:text-black"
         >
           <Search size={22} />
         </button>
