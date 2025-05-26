@@ -125,7 +125,11 @@ const NewArrivals = () => {
 
     container.addEventListener("scroll", updateScrollButtons);
     updateScrollButtons();
-  });
+
+    return () => {
+      container.removeEventListener("scroll", updateScrollButtons);
+    };
+  }, []);
 
   return (
     <section>
@@ -135,7 +139,7 @@ const NewArrivals = () => {
         </h2>
 
         {/* Scroll buttons */}
-        <div className="absolute right-0 bottom-[-50px] flex space-x-2 mr-2">
+        <div className="absolute right-0 bottom-[-50px] flex space-x-2 lg:mr-46">
           <button
             onClick={() => scroll("left")}
             disabled={!canScrollLeft}
