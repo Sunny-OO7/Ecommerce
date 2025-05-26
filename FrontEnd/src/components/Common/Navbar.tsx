@@ -18,14 +18,14 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="bg-white px-6 py-4 flex justify-between items-center">
+      <nav className="  bg-white px-6 py-4 flex justify-between items-center shadow-md">
         {/* Mobile Hamburger  */}
         <div className="flex items-center gap-4">
           <button onClick={toggleMenu} className="md:hidden">
             <Menu />
           </button>
           {/* Logo */}
-          <div className="text-2xl font-bold font-display uppercase  text-gray-800 tracking-wide">
+          <div className="text-2xl font-extrabold font-display uppercase  text-gray-800 tracking-wide">
             <Link to="/">StyleZone</Link>
           </div>
         </div>
