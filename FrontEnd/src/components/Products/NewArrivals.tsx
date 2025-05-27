@@ -72,18 +72,6 @@ const NewArrivals = () => {
       price: 1999,
       image: "https://picsum.photos/200?random=15",
     },
-    {
-      id: 11,
-      title: "Sleeve Striped T-shirt",
-      price: 2499,
-      image: "https://picsum.photos/200?random=16",
-    },
-    {
-      id: 12,
-      title: "Sleeve Striped T-shirt",
-      price: 2899,
-      image: "https://picsum.photos/200?random=17",
-    },
   ];
 
   const handleMouseDown = (e: React.MouseEvent) => {
