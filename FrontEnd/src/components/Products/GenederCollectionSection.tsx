@@ -4,13 +4,13 @@ import Women from "../../assets/Women.webp";
 import Kid from "../../assets/Kids.webp";
 const GenederCollectionSection = () => {
   return (
-    <section className="  px-4 pt-12 md:px-16 bg-white">
+    <section className="pt-12 px-4 md:px-24 bg-white">
       <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 text-black uppercase">
         Browse by Category
       </h2>
-      <div className="flex space-x-6 overflow-x-auto scrollbar-hide md:grid grid-cols-3 md:space-x-0 md:gap-8 ">
+      <div className="flex space-x-6 overflow-x-auto scrollbar-hide lg:grid grid-cols-3 lg:space-x-0 lg:gap-8 ">
         {/* Women COllection */}
-        <div className="relative min-w-full sm:min-w-[320px] md:min-w-0 flex-shrink-0 snap-center md:w-full">
+        <div className="relative min-w-full sm:min-w-[320px] lg:min-w-0 flex-shrink-0 snap-center lg:w-full">
           <img
             src={Women}
             alt="Women collection"

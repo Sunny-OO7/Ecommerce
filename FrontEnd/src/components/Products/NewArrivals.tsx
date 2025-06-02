@@ -65,19 +65,19 @@ const NewArrivals = () => {
   ];
 
   return (
-    <section className="py-12 px-4 md:px-16 bg-white ">
+    <section className="pt-12 px-4 md:px-24 bg-white">
       <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 text-black uppercase">
         New Arrivals
       </h2>
 
-      <div className="flex md:grid grid-cols-4  gap-6 overflow-x-auto">
+      <div className="flex lg:grid grid-cols-4  gap-6 overflow-x-auto">
         {products.slice(0, 4).map((product) => (
           <div className="relaive min-w-full">
             <div
               key={product.id}
               className="bg-[#f9f9f9]  rounded-xl shadow hover:shadow-md transition"
             >
-              <div className=" relative p-4 w-full   flex justify-center items-center">
+              <div className=" relative p-4 w-full h-auto  flex justify-center items-center">
                 <img
                   src={product.image}
                   alt={product.title}
