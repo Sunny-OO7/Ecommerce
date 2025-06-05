@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Collections from "./pages/Collections";
+import ProductDetails from "./components/Products/ProductDetails";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="signup" element={<Signup />} />
           <Route path="profile" element={<Profile />} />
           <Route path="collections/:collection" element={<Collections />} />
+          <Route path="products/:id" element={<ProductDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>

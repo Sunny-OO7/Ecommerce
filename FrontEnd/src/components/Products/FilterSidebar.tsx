@@ -1,11 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ChangeEvent, type MouseEvent } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import FormatCurrency from "../../utilities/FormatCurrency";
+
+type Filters = {
+  category: string;
+  gender: string;
+  color: string;
+  size: string[];
+  material: string[];
+  brand: string[];
+  minPrice: number;
+  maxPrice: number;
+};
 
 const FilterSidebar = () => {
   const [searchParams, setSearchparams] = useSearchParams();
   const navigate = useNavigate();
-  const [filters, setFilters] = useState({
+  const [filters, setFilters] = useState<Filters>({
     category: "",
     gender: "",
     color: "",
@@ -35,7 +46,7 @@ const FilterSidebar = () => {
   const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
 
   const materials = [
-    "cotton",
+    "Cotton",
     "Wool",
     "Denim",
     "Polyster",
@@ -69,45 +80,62 @@ const FilterSidebar = () => {
       size: params.size ? params.size.split(",") : [],
       material: params.material ? params.material.split(",") : [],
       brand: params.brand ? params.brand.split(",") : [],
-      minPrice: params.minPrice || 0,
-      maxPrice: params.maxPrice || 8000,
+      minPrice: Number(params.minPrice) || 0,
+      maxPrice: Number(params.maxPrice) || 8000,
     });
-    setPriceRange([0, params.maxPrice || 8000]);
+    setPriceRange([0, Number(params.maxPrice) || 8000]);
   }, [searchParams]);
 
-  const handleFilterChange = (e) => {
-    const { name, value, checked, type } = e.target;
-    let newFilters = { ...filters };
+  const handleFilterChange = (
+    e: ChangeEvent<HTMLInputElement> | MouseEvent<HTMLButtonElement>
+  ) => {
+    const target = e.target as HTMLInputElement | HTMLButtonElement;
+    const { name, value, type } = target;
+    const checked = (target as HTMLInputElement).checked;
+    const newFilters: Filters = { ...filters };
+    const key = name as keyof Filters;
+    const currentValue = newFilters[key];
 
     if (type === "checkbox") {
-      if (checked) {
-        newFilters[name] = [...(newFilters[name] || []), value];
-      } else {
-        newFilters[name] = newFilters[name].filter((item) => item !== value);
+      if (key === "size" || key === "material" || key === "brand") {
+        if (checked) {
+          newFilters[key] = [
+            ...(currentValue as string[]),
+            value,
+          ] as Filters[typeof key];
+        } else {
+          newFilters[key] = (currentValue as string[]).filter(
+            (item) => item !== value
+          ) as Filters[typeof key];
+        }
       }
-    } else {
-      newFilters[name] = value;
+    } else if (type === "radio" || name === "color") {
+      if (key === "category" || key === "gender" || key === "color") {
+        newFilters[key] = value as Filters[typeof key];
+      }
     }
+
     setFilters(newFilters);
     updateURLParams(newFilters);
   };
 
-  const updateURLParams = (newFilters) => {
+  const updateURLParams = (newFilters: Filters) => {
     const params = new URLSearchParams();
 
     Object.keys(newFilters).forEach((key) => {
-      if (Array.isArray(newFilters[key]) && newFilters[key].length > 0) {
-        params.append(key, newFilters[key].join(","));
-      } else if (newFilters[key]) {
-        params.append(key, newFilters[key]);
+      const value = newFilters[key as keyof Filters];
+      if (Array.isArray(value) && value.length > 0) {
+        params.append(key, value.join(","));
+      } else if (value) {
+        params.append(key, value.toString());
       }
     });
     setSearchparams(params);
     navigate(`?${params.toString()}`);
   };
 
-  const handlePriceChange = (e) => {
-    const newPrice = e.target.value;
+  const handlePriceChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newPrice = Number(e.target.value);
     setPriceRange([0, newPrice]);
     const newFilters = { ...filters, minPrice: 0, maxPrice: newPrice };
     setFilters(filters);

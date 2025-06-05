@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 import FilterSidebar from "../components/Products/FilterSidebar";
 import SortOptions from "../components/Products/SortOptions";
+import FormatCurrency from "../utilities/FormatCurrency";
 
 type fetchedProducts = {
   id: number;
@@ -123,6 +124,29 @@ const Collections = () => {
         {/* Sort Options */}
         <SortOptions />
         {/* Product Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 xl:gap-8 ">
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition"
+            >
+              <div className="w-full overflow-hidden aspect-[1/1]">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="p-4">
+                <h3 className="text-lg font-semibold">{product.title}</h3>
+                <p className="text-gray-700 font-medium">
+                  {FormatCurrency(product.price)}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

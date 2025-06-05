@@ -15,7 +15,7 @@ const Hero = () => {
             style.
           </p>
           <Link
-            to="/"
+            to="/collections/all"
             className="bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition"
           >
             Shop Now
