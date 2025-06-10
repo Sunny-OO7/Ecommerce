@@ -124,13 +124,13 @@ const Collections = () => {
         {/* Sort Options */}
         <SortOptions />
         {/* Product Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 xl:gap-8 ">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-4 md:gap-6 ">
           {products.map((product) => (
             <div
               key={product.id}
               className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition"
             >
-              <div className="w-full overflow-hidden aspect-[1/1]">
+              <div className="w-full overflow-hidden ">
                 <img
                   src={product.image}
                   alt={product.title}
