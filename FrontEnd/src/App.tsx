@@ -6,10 +6,12 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Collections from "./pages/Collections";
 import ProductDetails from "./components/Products/ProductDetails";
+import { Toaster } from "sonner";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <Toaster position="top-right" />
       <Routes>
         <Route path="/" element={<UserLayout />}>
           <Route index element={<Home />} />
