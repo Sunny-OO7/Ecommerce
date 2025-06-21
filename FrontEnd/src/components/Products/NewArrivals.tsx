@@ -72,12 +72,12 @@ const NewArrivals = () => {
 
       <div className="flex lg:grid grid-cols-4  gap-6 overflow-x-auto">
         {products.slice(0, 4).map((product) => (
-          <div className="relaive min-w-full">
+          <div className="relaive min-w-1/2">
             <div
               key={product.id}
               className="bg-[#f9f9f9]  rounded-xl shadow hover:shadow-md transition"
             >
-              <div className=" relative p-4 w-full h-auto  flex justify-center items-center">
+              <div className=" relative p-4 w-full h-auto   flex justify-center items-center">
                 <img
                   src={product.image}
                   alt={product.title}

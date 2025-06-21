@@ -11,7 +11,7 @@ const DressStyle = () => {
           Browse By Dress Style
         </h2>
         <div className="flex flex-col   lg:grid lg:grid-cols-12 gap-5 mx-[24px] pb-16 lg:px-16 lg:pb-19">
-          <div className=" relative bg-white md:col-span-5 overflow-hidden mx-auto min-w-full  h-[250px] lg:h-[289px] rounded-3xl ">
+          <div className=" relative bg-white md:col-span-5 overflow-hidden mx-auto min-w-full  h-[190px] lg:h-[289px] rounded-3xl ">
             <h1 className="absolute z-10 text-3xl font-bold mt-10 mx-10">
               Casual
             </h1>
@@ -19,21 +19,22 @@ const DressStyle = () => {
             <img
               src={Casual}
               alt=""
-              className="absolute left-0  h-full w-full object-contain scale-180 "
+              className="absolute  h-full w-full object-contain scale-180 "
             />
           </div>
-          <div className="relative bg-white md:col-span-7 overflow-hidden mx-auto min-w-full h-[250px] lg:h-[289px] rounded-3xl">
+          <div className="relative bg-white md:col-span-7 overflow-hidden mx-auto min-w-full h-[190px] lg:h-[289px] rounded-3xl">
             <h1 className="absolute z-10 text-3xl font-bold mt-10 mx-10">
               Formal
             </h1>
-
-            <img
-              src={Formal}
-              alt=""
-              className="absolute  h-full w-full object-contain scale-200 "
-            />
+            <div className="absolute  ml-60 h-[289px] w-3/4">
+              <img
+                src={Formal}
+                alt=""
+                className=" h-full w-full object-contain scale-180 "
+              />
+            </div>
           </div>
-          <div className="relative bg-white md:col-span-7 overflow-hidden mx-auto min-w-full h-[250px] lg:h-[289px] rounded-3xl ">
+          <div className="relative bg-white md:col-span-7 overflow-hidden mx-auto min-w-full h-[190px] lg:h-[289px] rounded-3xl ">
             <h1 className="absolute z-10 text-3xl font-bold mt-10 mx-10">
               Party
             </h1>
@@ -41,10 +42,10 @@ const DressStyle = () => {
             <img
               src={Party}
               alt=""
-              className="absolute left-0 h-full w-full object-contain scale-180 "
+              className="absolute  h-full w-full object-contain scale-180 "
             />
           </div>
-          <div className="relative bg-white md:col-span-5 overflow-hidden mx-auto min-w-full h-[250px] lg:h-[289px] rounded-3xl ">
+          <div className="relative bg-white md:col-span-5 overflow-hidden mx-auto min-w-full h-[190px] lg:h-[289px] rounded-3xl ">
             <h1 className="absolute z-10 text-3xl font-bold mt-10 mx-10">
               Gym
             </h1>
